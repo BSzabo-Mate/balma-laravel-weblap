@@ -1,59 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+ Balma Laravel Weblap
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ez a projekt egy Laravel-alapú weboldal, amely a [Laravel](https://laravel.com) keretrendszert, a [Vite](https://vitejs.dev/) build eszközt és a [Laragon](https://laragon.org/) fejlesztői környezetet használja.  
+Készült tanulási és fejlesztési célokra.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Telepítés lépései
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1️⃣ Repository klónozása
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+git clone https://github.com/BSzabo-Mate/balma-laravel-weblap.git
+cd balma-laravel-weblap
+Ha a repository privát, a tulajdonosnak előbb meg kell hívnia GitHubon:
+Settings → Collaborators → Invite a collaborator
 
-## Learning Laravel
+2️⃣ PHP csomagok telepítése
+A backend függőségek telepítése Composer-rel:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+bash
+Kód másolása
+composer install
+3️⃣ JavaScript csomagok telepítése
+A frontend (Vite, Vue/React/Bootstrap stb.) függőségek telepítése:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+bash
+Kód másolása
+npm install
+4️⃣ .env fájl létrehozása
+A .env fájl tartalmazza a helyi beállításokat (adatbázis, APP_KEY, stb.).
+A .env.example alapján készíts másolatot:
 
-## Laravel Sponsors
+bash
+Kód másolása
+copy .env.example .env
+Ezután szerkeszd meg a .env fájlt és add meg az adatbázisod adatait (pl. Laragon esetén):
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+makefile
+Kód másolása
+DB_DATABASE=balma
+DB_USERNAME=root
+DB_PASSWORD=
+5️⃣ Laravel kulcs generálása
+bash
+Kód másolása
+php artisan key:generate
+6️⃣ Adatbázis migrációk futtatása
+bash
+Kód másolása
+php artisan migrate
+Ha seed adatokat is használsz:
 
-### Premium Partners
+bash
+Kód másolása
+php artisan db:seed
+7️⃣ Fejlesztői szerver indítása
+Laravel szerver:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+bash
+Kód másolása
+php artisan serve
+Vite (frontend) szerver:
 
-## Contributing
+bash
+Kód másolása
+npm run dev
+Nyisd meg az alkalmazást a böngészőben:
+👉 http://localhost:8000
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+⚙️ Hasznos parancsok
+Cél	Parancs
+Cache ürítése	php artisan optimize:clear
+Adatbázis újratelepítése	php artisan migrate:fresh --seed
+Build készítése (éles környezet)	npm run build
+Tesztek futtatása	php artisan test
 
-## Code of Conduct
+📂 Mappa-struktúra
+php
+Kód másolása
+├── app/              # Laravel backend kód
+├── bootstrap/
+├── config/
+├── database/
+├── public/           # Vite build ide kerül
+├── resources/        # Blade view-k, JS, CSS
+├── routes/
+├── storage/
+├── tests/
+└── composer.json
+🔐 Fontos
+Soha ne töltsd fel a .env fájlt nyilvánosan!
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+A vendor/, node_modules/, public/build/ mappák automatikusan kimaradnak a Git-ből (ezt a .gitignore kezeli).
 
-## Security Vulnerabilities
+Ha új gépre klónozod, mindig futtasd:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+bash
+Kód másolása
+composer install
+npm install
+npm run dev
+👥 Közreműködők
+BSzabo-Mate
 
-## License
+🧾 Licenc
+Ez a projekt szabadon felhasználható tanulási és fejlesztési célokra.
+Ha éles környezetben szeretnéd használni, kérlek egyeztess a tulajdonossal.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+yaml
+Kód másolása
+
+---
+
+📦 **Használat:**
+1. Nyisd meg a projekted főmappáját PhpStormban vagy VS Code-ban.  
+2. Hozz létre egy új fájlt: **README.md**  
+3. Másold bele pontosan a fenti szöveget.  
+4. Terminálban futtasd:
+   ```bash
+   git add README.md
+   git commit -m "Add README.md"
+   git push
