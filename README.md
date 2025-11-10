@@ -12,17 +12,15 @@ Telepítés lépései
 ```bash
 git clone https://github.com/BSzabo-Mate/balma-laravel-weblap.git
 cd balma-laravel-weblap
-Ha a repository privát, a tulajdonosnak előbb meg kell hívnia GitHubon:
-Settings → Collaborators → Invite a collaborator
 
 2. PHP csomagok telepítése
-A backend függőségek telepítése Composer-rel:
+A backend telepítése Composer-rel:
 
 bash
 Kód másolása
 composer install
 3. JavaScript csomagok telepítése
-A frontend (Vite, Vue/React/Bootstrap stb.) függőségek telepítése:
+A frontend (Vite, Vue/React/Bootstrap stb.) telepítése:
 
 bash
 Kód másolása
@@ -34,7 +32,7 @@ A .env.example alapján készíts másolatot:
 bash
 Kód másolása
 copy .env.example .env
-Ezután szerkeszd meg a .env fájlt és add meg az adatbázisod adatait (pl. Laragon esetén):
+Ezután szerkeszd meg a .env fájlt és add meg az adatbázisod adatait (pl. Laragon esetén, de xamp-nál ez lehet máshogy van, de lehet nem):
 
 makefile
 Kód másolása
@@ -102,20 +100,5 @@ npm install
 npm run dev
 
  Licenc
-Ez a projekt szabadon felhasználható tanulási célokra, de tilos az ötletet felhasználi ;p.
-Ha éles környezetben szeretnéd használni, kérlek egyeztess a tulajdonossal.
+Ez a projekt szabadon felhasználható tanulási célokra, de tilos ellopni az ötletemet ;qq.
 
-yaml
-Kód másolása
-
----
-
- Használat:
-1. Nyisd meg a projekted főmappáját PhpStormban vagy VS Code-ban.  
-2. Hozz létre egy új fájlt: README.md  
-3. Másold bele pontosan a fenti szöveget.  
-4. Terminálban futtasd:
-   ```bash
-   git add README.md
-   git commit -m "Add README.md"
-   git push
