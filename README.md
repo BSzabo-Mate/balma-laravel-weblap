@@ -5,9 +5,9 @@ Készült tanulási és fejlesztési célokra.
 
 ---
 
-## Telepítés lépései
+Telepítés lépései
 
-### 1. Repository klónozása
+1. Repository klónozása
 
 ```bash
 git clone https://github.com/BSzabo-Mate/balma-laravel-weblap.git
