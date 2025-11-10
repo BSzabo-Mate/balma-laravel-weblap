@@ -100,8 +100,6 @@ Kód másolása
 composer install
 npm install
 npm run dev
-👥 Közreműködők
-BSzabo-Mate
 
  Licenc
 Ez a projekt szabadon felhasználható tanulási célokra, de tilos az ötletet felhasználi ;p.
@@ -112,9 +110,9 @@ Kód másolása
 
 ---
 
- **Használat:**
+ Használat:
 1. Nyisd meg a projekted főmappáját PhpStormban vagy VS Code-ban.  
-2. Hozz létre egy új fájlt: **README.md**  
+2. Hozz létre egy új fájlt: README.md  
 3. Másold bele pontosan a fenti szöveget.  
 4. Terminálban futtasd:
    ```bash
