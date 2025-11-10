@@ -20,7 +20,7 @@
         <div class="doc-container">
 
             <h1>Főoldal dokumentáció</h1>
-            <p>Ez a dokumentáció még csak egy sablon, ennél sokkal részletesebben be lesz mutatva minden, ez még a java scriptel bővülni fog.</p>
+            <p>Ez a dokumentáció még csak egy sablon (+ez az oldal nagy részben úgy épül fel hogy megfeleljen a hf leírásának), ennél sokkal részletesebben be lesz mutatva minden, ez még a java scriptel bővülni fog.</p>
             <p>Én xamp-helyett laragon-t használtam és sqlite-ot.</p>
 
             <hr>
@@ -48,16 +48,16 @@
                     <h2 style="margin: auto">Naptár</h2>
                 </th>
                 <tr class="highlight">
-                    <td>
+                    <td rowspan="2">
                         <p>Bal oldalon található naptár. A naptár külön komponens, amely a <code>.calendar-section</code> osztályban található.</p>
                         <p>Itt a laravelnek egy félig előre elkészített naptárját használom, amit elég volt consolból betenem és utána már tudtam costumizálni</p></td>
                     <td>
-                        <pre><code>
-                            &lt;div class="calendar-section"&gt;
-                            &lt;h2&gt;November 2025&lt;/h2&gt;
-                            &lt;!-- ide jön majd a naptár kód --&gt;
-                            &lt;/div&gt;
-                        </code></pre>
+                        <img src=" {{ asset('naptar.png') }} ">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src=" {{ asset('naptar2.png') }} ">
                     </td>
                 </tr>
             </table>

@@ -46,14 +46,9 @@
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="is_done" value="0">
-                                <input
-                                    type="checkbox"
-                                    name="is_done"
-                                    value="1"
-                                    onchange="this.form.submit()"
-                                    {{ $task->is_done ? 'checked' : '' }}
-                                >
+                                <input type="checkbox" name="is_done" value="1" onchange="this.form.submit()"{{ $task->is_done ? 'checked' : '' }}>
                             </form>
+
                             <div class="task-text">
                                 <h2 class="{{ $task->is_done ? 'done' : '' }}">{{ $task->title }}</h2>
                                 @if($task->description)
