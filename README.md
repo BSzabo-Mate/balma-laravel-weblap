@@ -6,72 +6,47 @@ Készült tanulási és fejlesztési célokra.
 ---
 
 Telepítés lépései
-
+Én laragon virt. szervert használtam, nagyon hasonló az xampp-hez de nem tudom vannak e eltérések
+```bash
 1. Repository klónozása
 
-```bash
 git clone https://github.com/BSzabo-Mate/balma-laravel-weblap.git
 cd balma-laravel-weblap
 
 2. PHP csomagok telepítése
 A backend telepítése Composer-rel:
-
-bash
-Kód másolása
 composer install
+
 3. JavaScript csomagok telepítése
 A frontend (Vite, Vue/React/Bootstrap stb.) telepítése:
-
-bash
-Kód másolása
 npm install
+
 4. .env fájl létrehozása
 A .env fájl tartalmazza a helyi beállításokat (adatbázis, APP_KEY, stb.).
 A .env.example alapján készíts másolatot:
-
-bash
-Kód másolása
 copy .env.example .env
-Ezután szerkeszd meg a .env fájlt és add meg az adatbázisod adatait (pl. Laragon esetén, de xamp-nál ez lehet máshogy van, de lehet nem):
 
-makefile
-Kód másolása
-DB_DATABASE=balma
+Ezután szerkeszd meg a .env fájlt és add meg az adatbázisod adatait, elméletileg csak ki kell szedni a #-et a következők elöl (pl. Laragon esetén, de xamp-nál ez lehet máshogy van, de lehet nem):
+DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
-5. Laravel kulcs generálása
-bash
-Kód másolása
-php artisan key:generate
-6. Adatbázis migrációk futtatása
-bash
-Kód másolása
-php artisan migrate
-Ha seed adatokat is használsz:
 
-bash
-Kód másolása
+5. Laravel kulcs generálása
+php artisan key:generate
+
+6. Adatbázis migrációk futtatása
+php artisan migrate
+
+Ha seed adatokat is használsz:
 php artisan db:seed
 7. Fejlesztői szerver indítása
 Laravel szerver:
-
-bash
-Kód másolása
 php artisan serve
-Vite (frontend) szerver:
-
-bash
-Kód másolása
-npm run dev
-Nyisd meg az alkalmazást a böngészőben:
- http://localhost:8000
+url: a-projekt-neve.test (balma-laravel-projekt.test)
 
     Hasznos parancsok
-Cél	Parancs
 Cache ürítése	php artisan optimize:clear
 Adatbázis újratelepítése	php artisan migrate:fresh --seed
-Build készítése (éles környezet)	npm run build
-Tesztek futtatása	php artisan test
 
  Mappa-struktúra
 php
@@ -86,8 +61,6 @@ Kód másolása
 ├── storage/
 ├── tests/
 └── composer.json
- Fontos
-Soha ne töltsd fel a .env fájlt nyilvánosan!
 
 A vendor/, node_modules/, public/build/ mappák automatikusan kimaradnak a Git-ből (ezt a .gitignore kezeli).
 
