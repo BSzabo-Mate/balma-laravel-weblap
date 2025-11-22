@@ -43,7 +43,6 @@
                     @foreach ($tasks as $task)
                         <li class="task-item" data-id="{{ $task->id }}">
                             <form action="{{ route('tasks.update', $task->id) }}" method="POST">
-                                @csrf
                                 @method('PUT')
                                 <input type="hidden" name="is_done" value="0">
                                 <input type="checkbox" name="is_done" value="1" onchange="this.form.submit()"{{ $task->is_done ? 'checked' : '' }}>
@@ -58,6 +57,14 @@
                                     <p>📅 Határidő: {{ \Carbon\Carbon::parse($task->due_date)->format('Y. m. d.') }}</p>
                                 @endif
                             </div>
+
+                            <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" style="background-color: #dc2626; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;">
+                                    Delete
+                                </button>
+                            </form>
                         </li>
                     @endforeach
                 </ul>
